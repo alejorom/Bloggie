@@ -1,7 +1,16 @@
+using Bloggie.Web.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+// Add DbContext
+builder.Services.AddDbContext<BloggieDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BloggieDbContext"));
+});
 
 var app = builder.Build();
 
