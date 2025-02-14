@@ -9,7 +9,7 @@ builder.Services.AddRazorPages();
 // Add DbContext
 builder.Services.AddDbContext<BloggieDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("BloggieDbContext"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BloggieBdConnectionString"));
 });
 
 var app = builder.Build();
